@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './pages/home.component';
-
+//ooooooo
 
 @NgModule({
   declarations: [HomeComponent],
