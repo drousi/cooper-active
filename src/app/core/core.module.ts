@@ -10,6 +10,7 @@ import { throwIfAlreadyLoaded } from './guards/module-import.guard';
     CommonModule,
   ]
 })
+//jjjj
 export class CoreModule { 
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     throwIfAlreadyLoaded(parentModule, 'CoreModule');
