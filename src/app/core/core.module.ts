@@ -3,15 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { throwIfAlreadyLoaded } from './guards/module-import.guard';
 
-
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-  ]
+  imports: [CommonModule],
+  exports: [],
 })
-//jjjj
-export class CoreModule { 
+export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     throwIfAlreadyLoaded(parentModule, 'CoreModule');
   }
