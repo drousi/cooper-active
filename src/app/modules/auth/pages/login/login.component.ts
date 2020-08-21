@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  constructor() { }
+  password : string;
+  showMessages: any = {};
+  errors: string[] = [];
+  messages: string[] = [];
+  user: any = {};
+  submitted: boolean = false;
+  rememberMe = false;
 
-  ngOnInit(): void {
+  constructor(protected router: Router) {}
+
+  login(): void {
+    this.errors = [];
+    this.messages = [];
+    this.submitted = true;
+    console.log('login ..');
   }
-
 }

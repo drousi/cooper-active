@@ -12,12 +12,15 @@ import {
   NbThemeModule,
   NbSidebarModule,
   NbMenuModule,
-  NbIconLibraries,
+  NbInputModule,
+  NbFormFieldModule,
+  NbCardModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { BackButtonDirective } from './directives/back-button.directive';
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [HeaderComponent, BackButtonDirective],
   imports: [
     CommonModule,
     NbThemeModule.forRoot({ name: 'dark' }),
@@ -29,7 +32,10 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     NbSearchModule,
     NbActionsModule,
     NbSidebarModule.forRoot(),
-    NbMenuModule.forRoot()
+    NbMenuModule.forRoot(),
+    NbInputModule,
+    NbFormFieldModule,
+    NbCardModule
   ],
   exports: [
     CommonModule,
@@ -43,7 +49,11 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     NbSearchModule,
     NbActionsModule,
     NbSidebarModule,
-    NbMenuModule
+    NbMenuModule,
+    NbInputModule,
+    NbFormFieldModule,
+    NbCardModule,
+    BackButtonDirective
   ],
 })
 export class SharedModule {

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gzcoop-a00ed": {
+      "hosting": {
+        "cooper-active": [
+          "gzcoop-a00ed"
+        ]
+      }
+    }
+  }
+}
