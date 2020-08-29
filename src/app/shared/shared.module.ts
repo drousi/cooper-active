@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HeaderComponent } from './components/header/header.component';
+import {DataModule} from '../data/data.module';
 import {
   NbLayoutModule,
   NbButtonModule,
@@ -15,6 +16,7 @@ import {
   NbInputModule,
   NbFormFieldModule,
   NbCardModule,
+  NbListModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { BackButtonDirective } from './directives/back-button.directive';
@@ -35,7 +37,9 @@ import { BackButtonDirective } from './directives/back-button.directive';
     NbMenuModule.forRoot(),
     NbInputModule,
     NbFormFieldModule,
-    NbCardModule
+    NbCardModule,
+    NbListModule,
+    DataModule
   ],
   exports: [
     CommonModule,
@@ -53,7 +57,9 @@ import { BackButtonDirective } from './directives/back-button.directive';
     NbInputModule,
     NbFormFieldModule,
     NbCardModule,
-    BackButtonDirective
+    NbListModule,
+    BackButtonDirective,
+    DataModule
   ],
 })
 export class SharedModule {

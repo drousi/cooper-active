@@ -2,10 +2,15 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
+    title: 'Home',
+    icon: { icon: 'home', pack: 'fa' },
+    link: '/home',
+    home: true,
+  },
+  {
     title: 'Stock',
     icon: { icon: 'cubes', pack: 'fa' },
     link: '/dashboard/stock',
-    home: true,
   },
   {
     title: 'Adhèrent',

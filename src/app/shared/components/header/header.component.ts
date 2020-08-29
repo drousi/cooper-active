@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NbMenuService } from '@nebular/theme';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-
-  constructor() {}
+  constructor(private menuService: NbMenuService) {}
+  navigateHome() {
+    this.menuService.navigateHome();
+    return false;
+  }
 }

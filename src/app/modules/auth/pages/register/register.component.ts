@@ -7,21 +7,25 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  errorMessage: string = '';
-  successMessage: string = '';
+  email: string;
+  password: string;
+  confirmPassword: string;
+  error: string = '';
+  message: string = '';
+  submitted: boolean = false;
   constructor(public authService: AuthService) {}
 
-  register(value) {
-    this.authService.register(value).then(
+  register() {
+    this.authService.register(this.email, this.password).then(
       (res) => {
         console.log(res);
-        this.errorMessage = '';
-        this.successMessage = 'Your account has been created';
+        this.error = '';
+        this.message = 'Your account has been created';
       },
       (err) => {
         console.log(err);
-        this.errorMessage = err.message;
-        this.successMessage = '';
+        this.error = err.message;
+        this.message = '';
       }
     );
   }

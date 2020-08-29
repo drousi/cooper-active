@@ -4,28 +4,21 @@
     <h1 id="title" class="title">Login</h1>
   </nb-card-header>
   <nb-card-body>
-
-    <p class="sub-title">Hello! Log in with your email.</p>
-
-    <nb-alert *ngIf="false" outline="danger" role="alert">
-      <p class="alert-title"><b>Oh snap!</b></p>
-      <ul class="alert-message-list">
-        <li *ngFor="let error of errors" class="alert-message">{{ error }}</li>
-      </ul>
+    <p>Vuillez saisir votre Login et mot de passe :</p>
+    
+    <nb-alert *ngIf="error!=''" accent="danger">
+      {{error}}
     </nb-alert>
 
-    <nb-alert *ngIf="false" outline="success" role="alert">
-      <p class="alert-title"><b>Hooray!</b></p>
-      <ul class="alert-message-list">
-        <li *ngFor="let message of messages" class="alert-message">{{ message }}</li>
-      </ul>
+    <nb-alert *ngIf="message!=''" accent="success">
+      {{message}}
     </nb-alert>
 
     <form (ngSubmit)="login()" aria-labelledby="title">
 
       <div class="form-control-group">
         <label class="label" for="input-email">Email address:</label>
-        <input nbInput fullWidth name="email" id="input-email" pattern=".+@.+\..+" placeholder="Email address" autofocus
+        <input nbInput fullWidth [(ngModel)]="email" name="email" id="input-email" pattern=".+@.+\..+" placeholder="Email address" autofocus
           [required]="true">
         <ng-container *ngIf="false">
           <p class="error-message" *ngIf="true">
@@ -39,14 +32,13 @@
 
       <div class="form-control-group">
         <label class="label" for="input-password">Password:</label>
-        <input nbInput fullWidth type="password" id="input-password" placeholder="Password" [required]="true">
+        <input nbInput fullWidth type="password" [(ngModel)]="password" name="password" id="input-password" placeholder="Password" [required]="true">
         <ng-container *ngIf="false ">
           <p class="error-message" *ngIf="false">
             Password is required!
           </p>
           <p class="error-message" *ngIf="false">
             Password should contains
-
             characters
           </p>
         </ng-container>

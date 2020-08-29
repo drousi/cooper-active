@@ -1,3 +1,71 @@
-<h2>Register</h2>
-<p>{{errorMessage}}</p>
-<h1>{{successMessage}}</h1>
+<nb-card>
+  <nb-card-header>
+    <nav class="navigation">
+        <a BackButton><nb-icon icon="fa-arrow-left"></nb-icon></a>
+      </nav>
+    <h1 id="title" class="title">Rgister</h1>
+  </nb-card-header>
+  <nb-card-body>
+    <p>Vuillez saisir votre Login et mot de passe :</p>
+
+    <nb-alert *ngIf="error!=''" accent="danger">
+      {{error}}
+    </nb-alert>
+
+    <nb-alert *ngIf="message!=''" accent="success">
+      {{message}}
+    </nb-alert>
+
+    <form (ngSubmit)="register()" aria-labelledby="title">
+
+      <div class="form-control-group">
+        <label class="label" for="input-email">Email address:</label>
+        <input nbInput fullWidth [(ngModel)]="email" name="email" id="input-email" pattern=".+@.+\..+"
+          placeholder="Email address" autofocus [required]="true">
+        <ng-container *ngIf="false">
+          <p class="error-message" *ngIf="true">
+            Email is required!
+          </p>
+          <p class="error-message" *ngIf="false">
+            Email should be the real one!
+          </p>
+        </ng-container>
+      </div>
+
+      <div class="form-control-group">
+        <label class="label" for="input-password">Password:</label>
+        <input nbInput fullWidth type="password" [(ngModel)]="password" name="password" id="input-password"
+          placeholder="Password" [required]="true">
+        <ng-container *ngIf="false ">
+          <p class="error-message" *ngIf="false">
+            Password is required!
+          </p>
+          <p class="error-message" *ngIf="false">
+            Password should contains
+            characters
+          </p>
+        </ng-container>
+      </div>
+      <div class="form-control-group">
+        <label class="label" for="input-re-password">Repeat password:</label>
+        <input nbInput [(ngModel)]="confirmPassword" #rePass="ngModel" type="password" id="input-re-password"
+          name="rePass" placeholder="Confirm Password" fullWidth [required]="true">
+        <ng-container *ngIf="rePass.invalid && rePass.touched">
+          <p class="error-message" *ngIf="rePass.errors?.required">
+            Password confirmation is required!
+          </p>
+          <p class="error-message" *ngIf="password.value != rePass.value && !rePass.errors?.required">
+            Password does not match the confirm password.
+          </p>
+        </ng-container>
+      </div>
+      <button nbButton fullWidth status="success" [disabled]="submitted" [class.btn-pulse]="submitted">
+        Register
+      </button>
+    </form>
+
+    <section class="another-action" aria-label="Sign in">
+      Already have an account? <a class="text-link" routerLink="../login">Log in</a>
+    </section>
+  </nb-card-body>
+</nb-card>

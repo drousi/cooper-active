@@ -1,0 +1,22 @@
+<nb-layout>
+  <nb-layout-header fixed>
+    <app-header></app-header>
+  </nb-layout-header>
+
+  <nb-layout-column>
+    <nb-card size="large">
+      <nb-card-header>
+        Products
+      </nb-card-header>
+      <nb-list>
+        <nb-list-item *ngFor="let prod of productListe">
+          {{ prod.id }}-{{prod.name}}
+        </nb-list-item>
+      </nb-list>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>
+
+<!-- <button nbButton (click)="addProduct()">Add Product</button>
+<button nbButton (click)="listProducts()">Liste Product</button>
+-->
